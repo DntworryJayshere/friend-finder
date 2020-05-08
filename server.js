@@ -2,7 +2,7 @@
 // DEPENDENCIES
 // Series of npm packages that we will use to give our server useful functionality
 // ==============================================================================
-
+var bodyParser = require("body-parser")
 var express = require("express");
 var path = require("path");
 
@@ -17,21 +17,19 @@ var app = express();
 // Sets an initial port. We"ll use this later in our listener
 var PORT = process.env.PORT || 3000;
 
+//app.use(express.static(path.join(__dirname,"./app/public")));
 
-app.use(express.static(path.join(__dirname,"./app/public")));
-
-// Sets up the Express app to handle data parsing
-app.use(express.urlencoded({ extended: true }));
-app.use(express.json());
-
+// Sets up the body parser app to handle data parsing
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
 
 // ================================================================================
 // ROUTER
 // The below points our server to a series of API & HTML "route" files
 // ================================================================================
 
-require("./routes/apiRoutes")(app);
-require("./routes/htmlRoutes")(app);
+require("./app/routing/apiRoutes")(app);
+require("./app/routing/htmlRoutes")(app);
 
 // =============================================================================
 // LISTENER

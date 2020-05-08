@@ -1,7 +1,6 @@
 // ===============================================================================
 // LOAD DATA
 // We are linking our routes to a series of "data" sources.
-// These data sources hold arrays of information on table-data, waitinglist, etc.
 // ===============================================================================
 var path = require("path");
 var friendData = require("../data/friends");
@@ -19,7 +18,6 @@ module.exports = function(app) {
     res.json(friendData);
   });
 
-
   // API POST Requests
   // Below code handles when a user submits a form and thus submits data to the server.
   // ---------------------------------------------------------------------------
@@ -34,7 +32,6 @@ module.exports = function(app) {
     // req.body is available since we're using the body parsing middleware
     friendData.push(newFriend);
     res.json(true);
-
   });
 
   // ---------------------------------------------------------------------------
