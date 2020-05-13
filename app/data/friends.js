@@ -6,7 +6,7 @@
 var friendsArray = [
     {
         "name": "Beth",
-        "photo": "#",
+        "photo": "https://www.pexels.com/photo/women-s-white-and-black-button-up-collared-shirt-774909/",
         "scores": [
             "5",
             "1",
@@ -17,7 +17,7 @@ var friendsArray = [
     },
     {
         "name": "John",
-        "photo": "#",
+        "photo": "https://www.pexels.com/photo/adult-beard-boy-casual-220453/",
         "scores": [
             "4",
             "2",
@@ -28,7 +28,7 @@ var friendsArray = [
     },
     {
         "name": "Savannah",
-        "photo": "#",
+        "photo": "https://www.pexels.com/photo/adult-african-american-afro-black-female-1181519/",
         "scores": [
             "5",
             "2",
@@ -39,7 +39,7 @@ var friendsArray = [
     },
     {
         "name": "Ash",
-        "photo": "#",
+        "photo": "https://www.pexels.com/photo/photography-of-a-guy-wearing-green-shirt-1222271/",
         "scores": [
             "3",
             "3",
@@ -50,7 +50,7 @@ var friendsArray = [
     },
     {
         "name": "Frank",
-        "photo": "#",
+        "photo": "https://www.pexels.com/photo/man-wearing-black-zip-up-jacket-near-beach-smiling-at-the-photo-736716/",
         "scores": [
             "4",
             "3",
@@ -61,7 +61,7 @@ var friendsArray = [
     },
     {
         "name": "Liam",
-        "photo": "#",
+        "photo": "https://www.pexels.com/photo/man-in-red-crew-neck-sweatshirt-photography-941693/",
         "scores": [
             "4",
             "4",
@@ -71,8 +71,8 @@ var friendsArray = [
         ]
     },
     {
-        "name": "Jay",
-        "photo": "#",
+        "name": "Andre",
+        "photo": "https://www.pexels.com/photo/man-in-white-dress-shirt-and-black-blazer-standing-outside-building-832998/",
         "scores": [
             "3",
             "3",

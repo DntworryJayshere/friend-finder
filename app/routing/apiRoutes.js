@@ -2,46 +2,46 @@
 // LOAD DATA
 // We are linking our routes to a series of "data" sources.
 // ===============================================================================
-var path = require("path");
 var friendData = require("../data/friends");
 
 // ===============================================================================
 // ROUTING
 // ===============================================================================
-
-module.exports = function(app) {
-  // API GET Requests
-  // Below code handles when users "visit" a page.
-  // ---------------------------------------------------------------------------
-
-  app.get("/api/friends", function(req, res) {
+module.exports = function (app) {
+  
+  app.get("/api/friends", function (req, res) {
     res.json(friendData);
   });
 
-  // API POST Requests
-  // Below code handles when a user submits a form and thus submits data to the server.
-  // ---------------------------------------------------------------------------
-
-  app.post("/api/friends", function(req, res) {
+  app.post("/api/friends", function (req, res) {
     console.log(req.body.scores);
+
+    var user = req.body;
+
+    for (var i = 0; i < user.scores.length; i++) {
+      user.scores[i] = parseInt(user.scores[i]);
+    }
+
+    var friendIndex = 0;
+    var minDifference = 40;
+
+    for (var i = 0; i < friendData.length; i++) {
+      var totalDifference = 0;
+      for (var j = 0; j < friendData[i].scores.length; j++) {
+        var difference = Math.abs(user.scores[j] - friendData[i].scores[j]);
+        totalDifference += difference;
+      }
+
+      if (totalDifference < minDifference) {
+        friendIndex = i;
+        minDifference = totalDifference;
+      }
+    }
+
+    friendData.push(user);
+    res.json(friendData[friendIndex]);
     
-    var newFriend = req.body;
-
-    // Note the code here. Our "server" will respond to requests and let users know if they have a table or not.
-    // It will do this by sending out the value "true" have a table
-    // req.body is available since we're using the body parsing middleware
-    friendData.push(newFriend);
-    res.json(true);
-  });
-
-  // ---------------------------------------------------------------------------
-  // I added this below code so you could clear out the table while working with the functionality.
-  // Don"t worry about it!
-
-  app.post("/api/clear", function(req, res) {
-    // Empty out the arrays of data
-    friendsData.length = 0;
-
-    res.json({ ok: true });
   });
 };
+
+
