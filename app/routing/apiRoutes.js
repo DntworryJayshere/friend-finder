@@ -1,19 +1,11 @@
-// ===============================================================================
-// LOAD DATA
-// We are linking our routes to a series of "data" sources.
-// ===============================================================================
-var friendData = require("../data/friends");
+var friendData = require('../data/friends');
 
-// ===============================================================================
-// ROUTING
-// ===============================================================================
 module.exports = function (app) {
-  
-  app.get("/api/friends", function (req, res) {
+  app.get('/api/friends', function (req, res) {
     res.json(friendData);
   });
 
-  app.post("/api/friends", function (req, res) {
+  app.post('/api/friends', function (req, res) {
     console.log(req.body.scores);
 
     var user = req.body;
@@ -40,8 +32,5 @@ module.exports = function (app) {
 
     friendData.push(user);
     res.json(friendData[friendIndex]);
-    
   });
 };
-
-
